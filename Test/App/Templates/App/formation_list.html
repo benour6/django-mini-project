@@ -1,0 +1,21 @@
+<html>
+    <head>
+    </head>
+    <body>
+        
+        <table border="1">
+            <tr>
+              <th>Titre</th>
+              <th>Logo</th>
+              <th>Etat</th>
+            </tr>
+            {% for f in formations %}
+            <tr>
+              <td>{{f.titre}}</td>
+              <td>{{f.logo}}</td>
+              <td>{{f.etat}}</td>
+            </tr>
+            {% endfor %}
+          </table>
+    </body>
+</html>
