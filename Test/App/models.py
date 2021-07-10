@@ -5,7 +5,7 @@ from django.utils.html import escape
 
 class Formation(models.Model):
     titre = models.CharField(max_length=30)
-    logo = models.ImageField()
+    logo = models.ImageField(upload_to='images/')
     ETAT_CHOICES=[('activé','activé'),('désactivé','désactivé')]
     etat = models.CharField(max_length=30,choices=ETAT_CHOICES, default='activé')
     CATEGORIE_CHOICES=[('web','web'),('mobile','mobile'),('cloud','cloud')]

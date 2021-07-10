@@ -1,20 +1,18 @@
+<html>
+<head></head>
+<body>
 <form method="get">
     {{ filter.form.as_p }}
     <input type="submit" />
 </form>
-<table border="1">
-    <tr>
-      <th>Titre</th>
-      <th>Logo</th>
-      <th>Etat</th>
-    </tr>
+<h3>Les Formations: </h3>
+    <ul>
     {% for obj in filter.qs %}
-    <tr>
-      <td><a href="{% url 'detail' obj.id %}">{{obj.titre}}</a></td>
-      <td>
-        <img src={{ obj.logo.url }}>
-        </td>
-      <td>{{obj.etat}}</td>
-    </tr>
+    <li>
+      <a href="{% url 'detail' obj.id %}">{{obj.titre}}</a>
+    
+  </li>
     {% endfor %}
-  </table>
+  </ul>
+</body>
+</html>
