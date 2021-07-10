@@ -1,21 +1,20 @@
-<html>
-    <head>
-    </head>
-    <body>
-        
-        <table border="1">
-            <tr>
-              <th>Titre</th>
-              <th>Logo</th>
-              <th>Etat</th>
-            </tr>
-            {% for f in formations %}
-            <tr>
-              <td>{{f.titre}}</td>
-              <td>{{f.logo}}</td>
-              <td>{{f.etat}}</td>
-            </tr>
-            {% endfor %}
-          </table>
-    </body>
-</html>
+<form method="get">
+    {{ filter.form.as_p }}
+    <input type="submit" />
+</form>
+<table border="1">
+    <tr>
+      <th>Titre</th>
+      <th>Logo</th>
+      <th>Etat</th>
+    </tr>
+    {% for obj in filter.qs %}
+    <tr>
+      <td><a href="{% url 'detail' obj.id %}">{{obj.titre}}</a></td>
+      <td>
+        <img src={{ obj.logo.url }}>
+        </td>
+      <td>{{obj.etat}}</td>
+    </tr>
+    {% endfor %}
+  </table>
